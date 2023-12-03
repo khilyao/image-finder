@@ -18,7 +18,7 @@ class App extends Component {
   handleSubmit = async e => {
     e.preventDefault();
 
-    this.setState({ isLoadingMore: true });
+    this.setState({ isLoadingMore: true, currentPage: 1 });
     const { newImages, totalHits } = await imagesApi.fetchImages(
       this.state.filter
     );
@@ -70,6 +70,7 @@ class App extends Component {
           isLoadingMore === false && (
             <Button onClick={this.handleLoadMoreImages}>Load More</Button>
           )}
+        {/* <Modal img={images} /> */}
       </div>
     );
   }
