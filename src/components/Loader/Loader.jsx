@@ -1,5 +1,6 @@
-import { Spinner } from './Loader.styled';
 import { RotatingLines } from 'react-loader-spinner';
+import PropTypes from 'prop-types';
+import { Spinner } from './Loader.styled';
 
 const Loader = ({ visible }) => {
   return (
@@ -13,6 +14,10 @@ const Loader = ({ visible }) => {
       />
     </Spinner>
   );
+};
+
+Loader.propTypes = {
+  visible: PropTypes.bool,
 };
 
 export default Loader;

@@ -33,7 +33,9 @@ class ImageGalleryItem extends Component {
 }
 
 ImageGalleryItem.propTypes = {
-  item: PropTypes.object,
+  imgURL: PropTypes.string.isRequired,
+  imgText: PropTypes.string.isRequired,
+  largeImageURL: PropTypes.string.isRequired,
 };
 
 export default ImageGalleryItem;

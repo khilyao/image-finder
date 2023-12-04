@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import ImageGalleryItem from '../ImageGalleryItem/ImageGalleryItem';
 
 const ImageGallery = ({ images }) => {
@@ -13,6 +14,10 @@ const ImageGallery = ({ images }) => {
       ))}
     </ul>
   );
+};
+
+ImageGallery.propTypes = {
+  images: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 export default ImageGallery;
