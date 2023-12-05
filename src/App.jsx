@@ -2,7 +2,7 @@ import { Component } from 'react';
 import './App.css';
 import SearchBar from './components/SearchBar/SearchBar';
 import ImageGallery from './components/ImageGallery/ImageGallery';
-import imagesApi from './services/images-api';
+import { fetchImages } from './services/images-api';
 import Button from './components/Button/Button';
 import Loader from './components/Loader/Loader';
 
@@ -19,9 +19,7 @@ class App extends Component {
     e.preventDefault();
 
     this.setState({ isLoadingMore: true, currentPage: 1 });
-    const { newImages, totalHits } = await imagesApi.fetchImages(
-      this.state.filter
-    );
+    const { newImages, totalHits } = await fetchImages(this.state.filter);
 
     this.setState(({ currentPage }) => ({
       images: newImages,
@@ -35,7 +33,7 @@ class App extends Component {
   handleLoadMoreImages = async () => {
     this.setState({ isLoadingMore: true });
 
-    const { newImages } = await imagesApi.fetchImages(
+    const { newImages } = await fetchImages(
       this.state.filter,
       this.state.currentPage
     );
